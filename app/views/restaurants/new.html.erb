@@ -1,0 +1,10 @@
+<%= simple_form_for @restaurant do |f| %>
+<%= render partial: "shared/form_unused_as_hidden", locals: {
+  f: f, fields: [:name, :address, :phone_number, :category]
+} %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category, as: :check_boxes, collection: Restaurant::CATEGORY, wrapper: :custom_collection_inline %>
+  <%= f.submit "add a restaurant", class: "btn btn-primary" %>
+<% end %>
